@@ -1,0 +1,21 @@
+---
+#-
+#
+#  ___  ___ _ __  ___  ___  _ __ ___
+# / __|/ _ \ '_ \/ __|/ _ \| '__/ __|
+# \__ \  __/ | | \__ \ (_) | |  \__ \
+# |___/\___|_| |_|___/\___/|_|  |___/
+#
+#
+
+- platform: template
+  sensors:
+    pool_temp:
+      friendly_name: "Pool Temp"
+      value_template: "{{ state_attr('climate.pool', 'current_temperature') }}"
+      unit_of_measurement: F
+      
+    spa_temp:
+      friendly_name: "Spa Temp"
+      value_template: "{{ state_attr('climate.spa', 'current_temperature') }}"
+      unit_of_measurement: F

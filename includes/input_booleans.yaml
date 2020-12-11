@@ -1,0 +1,7 @@
+# input_booleans.yaml
+
+dark_mode:
+  name: Dark mode
+  icon: mdi:theme-light-dark
+theme_alternative:
+  name: Theme alternative

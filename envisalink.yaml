@@ -1,0 +1,48 @@
+host: '192.168.86.101'
+panel_type: HONEYWELL
+user_name: !secret alarm_user
+password: !secret alarm_user_password
+code: !secret alarm_code
+port: 4025
+evl_version: 4
+keepalive_interval: 60
+zonedump_interval: 30
+timeout: 100
+panic_type: Police
+zones:
+  9:
+    name: 'Front Door'
+    type: 'door'
+  10:
+    name: 'Garage Entry Door'
+    type: 'door'
+  11:
+    name: 'Back Door'
+    type: 'door'
+  12:
+    name: 'Living Room Motion'
+    type: 'motion'
+  13:
+    name: 'Guest Bedroom Window'
+    type: 'window'
+  14:
+    name: 'Front Room Window 2'
+    type: 'window'
+  15:
+    name: 'Front Room Window 1'
+    type: 'window'
+  16:
+    name: 'Living Room Window 1'
+    type: 'window'
+  17:
+    name: 'Living Room Window 2'
+    type: 'window'
+  18:
+    name: 'Living Room Window 3'
+    type: 'window'
+  19:
+    name: 'Kitchen Window'
+    type: 'window'
+partitions:
+  1:
+    name: 'Home Alarm'

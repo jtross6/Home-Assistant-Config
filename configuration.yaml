@@ -1,0 +1,34 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+
+# Managed via UI
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Inputs
+input_select: !include includes/input_selects.yaml
+input_boolean: !include includes/input_booleans.yaml
+
+automation old: !include_dir_merge_list automations
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Home Alarm
+envisalink: !include envisalink.yaml
+
+# Misc
+climate: !include  includes/climate.yaml
+sensor: !include includes/sensors.yaml
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret

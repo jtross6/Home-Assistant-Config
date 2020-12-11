@@ -1,0 +1,91 @@
+- id: '1607657320620'
+  name: Good Night
+  entities:
+    switch.christmas_tree:
+      friendly_name: Christmas Tree
+      state: 'on'
+    light.gaming_lamp_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Gaming Lamp 1
+      supported_features: 63
+      state: 'off'
+    light.gaming_lamp_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Gaming Lamp 2
+      supported_features: 63
+      state: 'off'
+    light.gaming_lamp_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Gaming Lamp 3
+      supported_features: 63
+      state: 'off'
+    light.clarissa_s_bedside:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Clarissa's Bedside
+      supported_features: 63
+      state: 'off'
+    light.jordan_s_bedside:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Jordan's Bedside
+      supported_features: 63
+      state: 'off'
+    light.eb50d4ab8e43dd4e9944re:
+      friendly_name: Kitchen Cabinet LEDs
+      supported_features: 17
+      state: 'off'
+    light.living_room_lamp_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Living Room Lamp 1
+      supported_features: 63
+      state: 'off'
+    light.living_room_lamp_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Living Room Lamp 2
+      supported_features: 63
+      state: 'off'
+    light.living_room_lamp_3:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: Living Room Lamp 3
+      supported_features: 63
+      state: 'off'
+    light.tv_lightstrip:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      friendly_name: TV Lightstrip
+      supported_features: 63
+      state: unavailable

@@ -1,0 +1,27 @@
+# Climate
+
+# Pentair Pool
+- platform: mqtt
+  name: "Pool"
+  min_temp: 40
+  max_temp: 104
+  modes:
+    - "off"
+    - "heat"
+  current_temperature_topic: pentair/pooltemp/state
+  mode_command_topic: pentair/heater/pool/mode/set
+  mode_state_topic: pentair/heater/pool/mode/state
+  temperature_command_topic: pentair/heater/pool/temperature/set
+  temperature_state_topic: pentair/heater/pool/setpoint/state
+- platform: mqtt
+  name: "Spa"
+  min_temp: 40
+  max_temp: 104
+  modes:
+    - "off"
+    - "heat"
+  current_temperature_topic: pentair/spatemp/state
+  mode_command_topic: pentair/heater/spa/mode/set
+  mode_state_topic: pentair/heater/spa/mode/state
+  temperature_command_topic: pentair/heater/spa/temperature/set
+  temperature_state_topic: pentair/heater/spa/setpoint/state

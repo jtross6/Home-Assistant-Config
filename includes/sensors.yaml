@@ -19,6 +19,28 @@
       value_template: "{{ state_attr('climate.spa', 'current_temperature') }}"
       unit_of_measurement: F
 
+    window_status:
+      friendly_name: "Window Status"
+      entity_id:
+        - binary_sensor.front_room_window_1
+        - binary_sensor.front_room_window_2
+        - binary_sensor.living_room_window_1
+        - binary_sensor.living_room_window_2
+        - binary_sensor.living_room_window_3
+        - binary_sensor.guest_bedroom_window
+        - binary_sensor.kitchen_window
+      device_class: window
+      value_template: "{{ expand('group.window_status') | selectattr('state','eq','on') | list | count > 0 }}"
+
+    door_status:
+      friendly_name: "Door Status"
+      entity_id:
+        - binary_sensor.front_door
+        - binary_sensor.back_door
+        - binary_sensor.garage_entry_door
+      device_class: door
+      value_template: "{{ expand('group.door_status') | selectattr('state','eq','on') | list | count > 0 }}"
+
 - platform: group
   name: All Doors
   entities:

@@ -1,0 +1,29 @@
+#
+# .____    .___  ________  ___ _______________________
+# |    |   |   |/  _____/ /   |   \__    ___/   _____/
+# |    |   |   /   \  ___/    ~    \|    |  \_____  \ 
+# |    |___|   \    \_\  \    Y    /|    |  /        \
+# |_______ \___|\______  /\___|_  / |____| /_______  /
+#         \/           \/       \/                 \/
+#
+
+- platform: group
+  name: Living Room Lamp
+  entities:
+    - light.living_room_lamp_1
+    - light.living_room_lamp_2
+    - light.living_room_lamp_3
+
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.living_room_lamp_1
+    - light.living_room_lamp_2
+    - light.living_room_lamp_3
+    - light.tv_lightstrip
+
+- platform: group
+  name: Kitchen Lights
+  entities:
+    - light.bloom
+    - light.cabinet_lightstrip

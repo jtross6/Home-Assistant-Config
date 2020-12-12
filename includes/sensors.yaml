@@ -41,20 +41,20 @@
       device_class: door
       value_template: "{{ expand('group.door_status') | selectattr('state','eq','on') | list | count > 0 }}"
 
-- platform: group
-  name: All Doors
-  entities:
-    - binary_sensor.front_door
-    - binary_sensor.back_door
-    - binary_sensor.garage_entry_door
+# - platform: group
+#   name: All Doors
+#   entities:
+#     - binary_sensor.front_door
+#     - binary_sensor.back_door
+#     - binary_sensor.garage_entry_door
 
-- platform: group
-  name: All Windows
-  entities:
-    - binary_sensor.front_room_window_1
-    - binary_sensor.front_room_window_2
-    - binary_sensor.living_room_window_1
-    - binary_sensor.living_room_window_2
-    - binary_sensor.living_room_window_3
-    - binary_sensor.guest_bedroom_window
-    - binary_sensor.kitchen_window
+# - platform: group
+#   name: All Windows
+#   entities:
+#     - binary_sensor.front_room_window_1
+#     - binary_sensor.front_room_window_2
+#     - binary_sensor.living_room_window_1
+#     - binary_sensor.living_room_window_2
+#     - binary_sensor.living_room_window_3
+#     - binary_sensor.guest_bedroom_window
+#     - binary_sensor.kitchen_window

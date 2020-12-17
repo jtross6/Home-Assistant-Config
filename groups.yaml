@@ -15,3 +15,14 @@ all_windows:
     - binary_sensor.living_room_window_3
     - binary_sensor.guest_bedroom_window
     - binary_sensor.kitchen_window
+    
+all_media_players:
+  name: All Media
+  entities:
+    - media_player.spotify_lilboarder32
+    - media_player.shatterdome_speaker
+    - media_player.onkybro
+    - media_player.nursery_speaker
+    - media_player.master_bedroom_speaker
+    - media_player.living_room_tv
+    - media_player.kitchen_display

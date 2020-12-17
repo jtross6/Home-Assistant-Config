@@ -1,6 +1,1 @@
 # Media Players
-
-- platform: group
-  name: All Media Players
-  entities:
-    - media_player.spotify_lilboarder32

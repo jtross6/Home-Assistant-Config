@@ -1,9 +1,9 @@
 secrets.yaml
 *.log
 *.xml
-*.db
+*.db*
 *.sqlite
 .storage/
 OZW_Log.txt
-harmony_harmony_hub.conf
+harmony*.conf
 known_devices.yaml

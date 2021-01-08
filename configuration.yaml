@@ -30,8 +30,12 @@ climate: !include  includes/climate.yaml
 sensor: !include includes/sensors.yaml
 binary_sensor: !include includes/binary_sensors.yaml
 light: !include includes/lights.yaml
-media_player: !inlucde includes/media_players.yaml
+media_player: !include includes/media_players.yaml
 
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret

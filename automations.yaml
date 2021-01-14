@@ -29,25 +29,6 @@
   action:
   - service: homekit.start
   mode: single
-- id: '1607459606775'
-  alias: Lock Front Door Delay
-  description: Will lock the front door after x minutes.
-  trigger:
-  - platform: device
-    device_id: 33c84b4be5a0e6d7c799cc53558c7b52
-    domain: lock
-    entity_id: lock.front_door
-    type: unlocked
-  condition:
-  - condition: numeric_state
-    entity_id: input_number.lock_after_delay
-    above: '0'
-  action:
-  - delay: 00:{{ states("input_number.lock_after_delay") | int }}
-  - service: lock.lock
-    data: {}
-    entity_id: lock.front_door
-  mode: single
 - id: '1607557633859'
   alias: Kitched LEDs at Sunset
   description: Turns on kitchen accessory lighting at sunset and turns off at midnight.

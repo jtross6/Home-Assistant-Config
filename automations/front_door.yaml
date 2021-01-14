@@ -1,0 +1,59 @@
+#
+#   __                 _         _                  
+#  / _|               | |       | |                 
+# | |_ _ __ ___  _ __ | |_    __| | ___   ___  _ __ 
+# |  _| '__/ _ \| '_ \| __|  / _` |/ _ \ / _ \| '__|
+# | | | | | (_) | | | | |_  | (_| | (_) | (_) | |   
+# |_| |_|  \___/|_| |_|\__|  \__,_|\___/ \___/|_|   
+#
+
+- alias: "Frontdoor: lock delay"
+  description: Will lock the front door after x minutes.
+  trigger:
+    - platform: device
+      device_id: 33c84b4be5a0e6d7c799cc53558c7b52
+      domain: lock
+      entity_id: lock.front_door
+      type: unlocked
+  condition:
+    - condition: numeric_state
+      entity_id: input_number.lock_after_delay
+      above: '0'
+  action:
+    - delay: 00:{{ states("input_number.lock_after_delay") | int }}
+    - service_template: >
+        {% if (is_state("binary_sensor.front_door", "off")) -%}
+        lock.lock
+        {%- else -%}
+        input_boolean.turn_on
+        {%- endif %}
+      data_template:
+        entity_id: >
+          {% if (is_state("binary_sensor.front_door", "off")) -%}
+          lock.front_door
+          {%- else -%}
+          input_boolean.lock_front_door_on_close
+          {%- endif %}
+  mode: single
+
+- alias: "Frontdoor: lock on close"
+  description: Will lock the front door when closed if lock delay has passed.
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.front_door
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.lock_front_door_on_close
+      state: 'on'
+  action:
+    - delay: 00:00:03
+    - condition: state
+      entity_id: binary_sensor.front_door
+      state: 'off'
+    - service: lock.lock
+      entity_id: lock.front_door
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lock_front_door_on_close
+  mode: single

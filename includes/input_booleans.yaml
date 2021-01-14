@@ -12,3 +12,5 @@ dark_mode:
   icon: mdi:theme-light-dark
 theme_alternative:
   name: Theme alternative
+lock_front_door_on_close:
+  name: Lock Front Door on Close

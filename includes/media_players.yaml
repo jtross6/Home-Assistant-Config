@@ -1,1 +1,12 @@
 # Media Players
+
+- platform: group
+  name: All Media Players
+  entities:
+    - media_player.spotify_lilboarder32
+    - media_player.shatterdome_speaker
+    - media_player.onkybro
+    - media_player.nursery_speaker
+    - media_player.master_bedroom_speaker
+    - media_player.living_room_tv
+    - media_player.kitchen_display

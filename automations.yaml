@@ -111,3 +111,16 @@
     data:
       message: Plex viewers changed to {{ trigger.to_state.state }}
   mode: single
+- id: '1609380139394'
+  alias: Brew Coffee
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00
+  condition: []
+  action:
+  - type: turn_on
+    device_id: a1a44192eaad6271bcc976226aa4af06
+    entity_id: switch.moccamaster
+    domain: switch
+  mode: single

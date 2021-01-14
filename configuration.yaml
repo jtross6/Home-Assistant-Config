@@ -35,7 +35,7 @@ media_player: !include includes/media_players.yaml
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
-
+  
 google:
   client_id: !secret google_client_id
   client_secret: !secret google_client_secret

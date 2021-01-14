@@ -41,8 +41,8 @@
   trigger:
   - platform: state
     entity_id: binary_sensor.front_door
-    to: 'on'
-    from: 'off'
+    to: 'off'
+    from: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.lock_front_door_on_close

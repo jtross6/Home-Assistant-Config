@@ -16,6 +16,7 @@ scene: !include scenes.yaml
 # Inputs
 input_select: !include includes/input_selects.yaml
 input_boolean: !include includes/input_booleans.yaml
+input_datetime: !include includes/input_datetimes.yaml
 
 automation old: !include_dir_merge_list automations
 

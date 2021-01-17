@@ -8,5 +8,7 @@
 #
 
 bedtime:
+  friendly_name: 'Bedtime'
   has_time: true
   icon: mdi:bed
+  initial: 23:00

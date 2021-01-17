@@ -16,8 +16,17 @@
   action:
     - service: notify.mobile_app_jordans_iphone
       data:
-        title: "Check this out!"
-        message: "Test!"
+        title: "Bedtime Status Report"
+        message: >
+          Lights:
+          {{ {% if is_state('light.living_room_lamp', 'on') %}
+          - Living Room Lamp
+          {% endif %} }}
+          {{ {% if is_state('light.shatterdome_lamp', 'on') %}
+          - Shatterdome Lamp
+          {% endif %} }}
+          Garage: {{ states('cover.garage') }}
+          Front Door: {{ states('lock.front_door') }}
         data:
           push:
             category: BEDTIME

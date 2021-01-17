@@ -8,5 +8,5 @@
 #
 
 bedtime:
-  type: time
+  has_time: true
   icon: mdi:bed

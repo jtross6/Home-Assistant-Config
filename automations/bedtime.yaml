@@ -18,7 +18,7 @@
       data:
         title: "Bedtime Status Report"
         message: >
-          Lights: {{ '\n' -}}
+          {{ 'Lights: \n' if is_state('light.living_room_lamp', 'on') or is_state('light.shatterdome_lamp', 'on') -}}
           {{ '- Living Room Lamp\n' if is_state('light.living_room_lamp', 'on') else '' -}}
           {{ '- Shatterdome Lamp\n' if is_state('light.shatterdome_lamp', 'on') else '' -}}
           Garage: {{ states('cover.garage') }}{{ '\n' -}}

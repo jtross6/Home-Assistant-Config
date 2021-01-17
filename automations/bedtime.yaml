@@ -32,7 +32,7 @@
     platform: event
     event_type: ios.notification_action_fired
     event_data:
-      actionName: BEDTIME
+      actionName: GOOD_NIGHT
   action:
     service: scene.turn_on
     entity_id: scene.good_night

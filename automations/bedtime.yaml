@@ -11,7 +11,7 @@
 - alias: "Bedtime: report"
   trigger:
     - platform: time
-      at: input_boolean.bedtime
+      at: input_datetime.bedtime
   condition: "{{ is_state('bedtime_report', 'on') }}"
   action:
     - service: notify.mobile_app_jordans_iphone

@@ -1,0 +1,18 @@
+#
+#  _           
+# (_)          
+#  _  ___  ___ 
+# | |/ _ \/ __|
+# | | (_) \__ \
+# |_|\___/|___/
+#
+
+push:
+  categories:
+    - name: 'Bedtime'
+      identifier: 'bedtime'
+      actions:
+        - identifier: 'GOOD_NIGHT'
+          title: 'Good night'
+          activationMode: 'background'
+          behavior: 'default'

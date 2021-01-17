@@ -50,3 +50,16 @@
         | rejectattr('state','eq','off')
         | rejectattr('state','eq','unavailable')
         | list | count > 0 }}
+
+    bedtime_report:
+      friendly_name: "Bedtime Report"
+      entity_id:
+        - light.shatterdome_light
+        - light.living_room_lamp
+        - binary_sensor.window_status
+        - cover.garage
+      value_template: >
+        {{ is_state('light.shatterdome_light', 'on') or
+          is_state('light.shatterdome_light', 'on') or
+          is_state('binary_sensor.window_status', 'on') or 
+          is_state('cover.garage', 'open') }}

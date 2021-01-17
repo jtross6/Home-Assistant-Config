@@ -14,5 +14,13 @@
       at: "{{ states('input_boolean.bedtime') }}"
   condition: "{{ is_state('bedtime_report', 'on') }}"
   action:
-    entity_id: input_boolean.dark_mode
-    service: input_boolean.turn_on
+    - service: notify.mobile_app_jordans_iphone
+      data:
+        title: "Check this out!"
+        message: "Test!"
+        data:
+          push:
+            category: "bedtime"
+          action_data: # Anything passed in action_data will get echoed back to Home Assistant.
+            entity_id: light.test
+            my_custom_data: foo_bar

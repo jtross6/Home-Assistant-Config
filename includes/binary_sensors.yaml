@@ -37,3 +37,10 @@
           is_state('light.shatterdome_light', 'on') or
           is_state('binary_sensor.window_status', 'on') or 
           is_state('cover.garage', 'open') }}
+      
+    bedtime_lights_on:
+      friendly_name: "Bedtime Lights On"
+      value_template: >
+        {{ expand('group.bedtime_lights')
+        | selectattr('state','eq','on')
+        | list | count > 0 }}

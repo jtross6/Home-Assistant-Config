@@ -37,7 +37,7 @@
       effect_list:
       - colorloop
       - random
-      friendly_name: Clarissa's Bedside
+      friendly_name: Clarissa’s Bedside
       supported_features: 63
       state: 'off'
     light.jordan_s_bedside:
@@ -46,12 +46,8 @@
       effect_list:
       - colorloop
       - random
-      friendly_name: Jordan's Bedside
+      friendly_name: Jordan’s Bedside
       supported_features: 63
-      state: 'off'
-    light.eb50d4ab8e43dd4e9944re:
-      friendly_name: Kitchen Cabinet LEDs
-      supported_features: 17
       state: 'off'
     light.living_room_lamp_1:
       min_mireds: 153
@@ -88,4 +84,4 @@
       - random
       friendly_name: TV Lightstrip
       supported_features: 63
-      state: unavailable
+      state: 'off'

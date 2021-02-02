@@ -46,7 +46,12 @@
     entity_id: light.bloom
     domain: light
     brightness_pct: 80
-  - delay: 06:00
+  - type: turn_on
+    device_id: 3f438a142c33143b06d9464f3de79b28
+    entity_id: light.cabinets_wled
+    domain: light
+    brightness_pct: 80
+  - delay: 06:00:00
   - type: turn_off
     device_id: 82d3095b956b7d698b7154b820d41535
     entity_id: light.island_led_strip
@@ -54,6 +59,10 @@
   - type: turn_off
     device_id: 5b19356c467c69cee68b6ba3681cc026
     entity_id: light.bloom
+    domain: light
+  - type: turn_off
+    device_id: 3f438a142c33143b06d9464f3de79b28
+    entity_id: light.cabinets_wled
     domain: light
   mode: single
 - id: '1607655474196'

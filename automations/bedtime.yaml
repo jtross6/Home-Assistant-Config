@@ -18,12 +18,20 @@
       data:
         title: "Bedtime Status Report"
         message: >
-          {{ 'Lights: \n' if is_state('binary_sensor.bedtime_lights_on', 'on') else '' -}}
-          {{ expand('group.bedtime_lights') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n') -}}
-          {{ 'Garage: ' if is_state('cover.garage', 'closed') else '' }}{{ states('cover.garage') }}{{ '\n' -}}
-          {{ 'Front Door: ' if is_state('lock.front_door', 'locked') else ''}}{{ states('lock.front_door') }}
-          {{ 'Windows: \n' if is_state('binary_sensor.window_status', 'on') else '' -}}
-          {{ expand('group.all_windows') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n') -}}
+          {% if is_state('binary_sensor.bedtime_lights_on', 'on') %}
+          Lights: {{ '\n  ' -}}
+          {{ expand('group.bedtime_lights') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
+          {% endif %}
+          {% if is_state('cover.garage', 'open') %}
+          Garage: {{ states('cover.garage') }}{{ '\n' -}}
+          {% endif %}
+          {% if is_state('lock.front_door', 'unlocked') %}
+          Front door: {{ states('lock.front_door') }}{{ '\n' -}}
+          {% endif %}
+          {% if is_state('binary_sensor.window_status', 'on') %}
+          Windows: {{ '\n  ' -}}
+          {{ expand('group.all_windows') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
+          {% endif %}
         data:
           push:
             category: BEDTIME

@@ -19,12 +19,12 @@
         title: "Bedtime Status Report"
         message: >
           {% if is_state('binary_sensor.bedtime_lights_on', 'on') %}
-          Lights: {{ '\n  ' -}}
+          {{ 'Lights:\n  ' -}}
           {{ expand('group.bedtime_lights') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
           {{ '\n' -}}
           {% endif %}
           {% if is_state('binary_sensor.window_status', 'on') %}
-          Windows: {{ '\n  ' -}}
+          {{ 'Windows:\n  ' -}}
           {{ expand('group.all_windows') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
           {{ '\n' -}}
           {% endif %}

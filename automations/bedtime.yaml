@@ -22,17 +22,11 @@
           {{ 'Lights:\n  ' -}}
           {{ expand('group.bedtime_lights') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
           {{ '\n' -}}
-          {% endif %}
-          {% if is_state('binary_sensor.window_status', 'on') %}
-          {{ 'Windows:\n  ' -}}
+          {% endif %}{% if is_state('binary_sensor.window_status', 'on') %}{{ 'Windows:\n  ' -}}
           {{ expand('group.all_windows') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
           {{ '\n' -}}
-          {% endif %}
-          {% if is_state('cover.garage', 'open') %}
-          Garage: {{ states('cover.garage') }}{{ '\n' -}}
-          {% endif %}
-          {% if is_state('lock.front_door', 'unlocked') %}
-          Front door: {{ states('lock.front_door') }}{{ '\n' -}}
+          {% endif %}{% if is_state('cover.garage', 'open') %}Garage: {{ states('cover.garage') }}{{ '\n' -}}
+          {% endif %}{% if is_state('lock.front_door', 'unlocked') %}Front door: {{ states('lock.front_door') }}{{ '\n' -}}
           {% endif %}
         data:
           push:

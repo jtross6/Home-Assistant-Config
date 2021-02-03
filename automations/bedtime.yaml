@@ -20,8 +20,10 @@
         message: >
           {{ 'Lights: \n' if is_state('binary_sensor.bedtime_lights_on', 'on') else '' -}}
           {{ expand('group.bedtime_lights') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n') -}}
-          Garage: {{ states('cover.garage') }}{{ '\n' -}}
-          Front Door: {{ states('lock.front_door') }}
+          {{ 'Garage: ' if is_state('cover.garage', 'closed') else '' }}{{ states('cover.garage') }}{{ '\n' -}}
+          {{ 'Front Door: ' if is_state('lock.front_door', 'locked') else ''}}{{ states('lock.front_door') }}
+          {{ 'Windows: \n' if is_state('binary_sensor.window_status', 'on') else '' -}}
+          {{ expand('group.all_windows') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n') -}}
         data:
           push:
             category: BEDTIME

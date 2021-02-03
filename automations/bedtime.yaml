@@ -21,6 +21,7 @@
           {% if is_state('binary_sensor.bedtime_lights_on', 'on') %}
           Lights: {{ '\n  ' -}}
           {{ expand('group.bedtime_lights') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
+          {{ '-n' -}}
           {% endif %}
           {% if is_state('cover.garage', 'open') %}
           Garage: {{ states('cover.garage') }}{{ '\n' -}}

@@ -25,8 +25,8 @@
           {% endif %}
           {% if is_state('binary_sensor.window_status', 'on') %}
           Windows: {{ '\n  ' -}}
-          {{ '\n' -}}
           {{ expand('group.all_windows') | selectattr('state','eq','on') | list | map(attribute='name') | join('\n  ') -}}
+          {{ '\n' -}}
           {% endif %}
           {% if is_state('cover.garage', 'open') %}
           Garage: {{ states('cover.garage') }}{{ '\n' -}}

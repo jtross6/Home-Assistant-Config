@@ -1,0 +1,21 @@
+---
+#
+#             __  __          
+#            / _|/ _|         
+#   ___ ___ | |_| |_ ___  ___ 
+#  / __/ _ \|  _|  _/ _ \/ _ \
+# | (_| (_) | | | ||  __/  __/
+#  \___\___/|_| |_| \___|\___|
+#
+
+- alias: "Coffee Brewing Notification"
+  trigger:
+      - platform: state
+        entity_id: sensor.moccamaster_state
+        to: 'warming'
+        from: 'brewing'
+  action:
+    - service: notify.mobile_app_jordans_iphone
+      data:
+        title: "Your coffee has finished brewing"
+        message: "Enjoy ☕️"

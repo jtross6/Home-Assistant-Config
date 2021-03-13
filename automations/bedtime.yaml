@@ -41,9 +41,9 @@
     - service: scene.turn_on
       entity_id: scene.good_night
     - service: input_datetime.set_datetime
-    entity_id: input_datetime.bedtime_delayed
-    data:
-      time: input_datetime.bedtime
+      entity_id: input_datetime.bedtime_delayed
+      data:
+        time: input_datetime.bedtime
       
 - alias: "Bedtime: good night"
   trigger:

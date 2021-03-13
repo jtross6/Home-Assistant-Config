@@ -19,3 +19,7 @@
       data:
         title: "Your coffee has finished brewing"
         message: "Enjoy ☕️"
+    - service: notify.mobile_app_clarissas_iphone
+      data:
+        title: "Your coffee has finished brewing"
+        message: "Enjoy ☕️"

@@ -12,3 +12,21 @@ bedtime:
   has_time: true
   icon: mdi:bed
   initial: '23:00'
+
+bedtime_report:
+  name: 'Bedtime Report'
+  has_time: true
+  icon: mdi:bed
+  initial: '22:30'
+
+bedtime_delayed:
+  name: 'Bedtime Delay'
+  has_time: true
+  icon: mdi:bed
+  initial: '23:00'
+
+bedtime_delay_amount:
+  name: 'Bedtime Delay Amount'
+  has_time: true
+  icon: mdi:bed
+  initial: '1:00'

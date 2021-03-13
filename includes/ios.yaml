@@ -16,3 +16,7 @@ push:
           title: 'Good night'
           activationMode: 'background'
           behavior: 'default'
+        - identifier: 'GOOD_NIGHT_DELAY'
+          title: 'Delay for 1 hour'
+          activationMode: 'background'
+          behavior: 'default'

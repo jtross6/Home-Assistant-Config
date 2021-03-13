@@ -11,7 +11,7 @@
 - alias: "Bedtime: report"
   trigger:
     - platform: time
-      at: input_datetime.bedtime
+      at: input_datetime.bedtime_report
   condition: "{{ is_state('binary_sensor.bedtime_report', 'on') }}"
   action:
     - service: notify.mobile_app_jordans_iphone
@@ -30,8 +30,21 @@
           {% endif %}
         data:
           push:
-            category: BEDTIME
+            category: bedtime
 
+- alias: "Bedtime: activate"
+  trigger:
+    - platform: time
+      at: input_datetime.bedtime_delayed
+  condition: "{{ is_state('binary_sensor.bedtime_report', 'on') }}"
+  action:
+    - service: scene.turn_on
+      entity_id: scene.good_night
+    - service: input_datetime.set_datetime
+      data_template:
+        entity_id: input_datetime.bedtime_delayed
+        time: states("input_datetime.bedtime")
+      
 - alias: "Bedtime: good night"
   trigger:
     platform: event
@@ -41,3 +54,16 @@
   action:
     service: scene.turn_on
     entity_id: scene.good_night
+
+- alias: "Bedtime: delay"
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: GOOD_NIGHT_DELAY
+  action:
+    service: input_datetime.set_datetime
+    data_template:
+      entity_id: input_datetime.bedtime_delayed
+      time: >
+        {{ (state_attr('input_datetime.bedtime' , 'timestamp') + state_attr('input_datetime.bedtime_delay_amount' , 'timestamp')) | timestamp_custom("%H:%M", False) }}

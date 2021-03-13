@@ -30,7 +30,7 @@
           {% endif %}
         data:
           push:
-            category: BEDTIME
+            category: bedtime
 
 - alias: "Bedtime: activate"
   trigger:
@@ -42,8 +42,8 @@
       entity_id: scene.good_night
     - service: input_datetime.set_datetime
       entity_id: input_datetime.bedtime_delayed
-      data:
-        time: input_datetime.bedtime
+      data_template:
+        datetime: input_datetime.bedtime
       
 - alias: "Bedtime: good night"
   trigger:
@@ -64,6 +64,6 @@
   action:
     service: input_datetime.set_datetime
     entity_id: input_datetime.bedtime_delayed
-    data:
-      time: >
+    data_template:
+      datetime: >
         {{ (as_timestamp(input_datetime.bedtime) + as_timestamp(input_datetime.bedtime_delay_amount)) | timestamp_custom("%H:%M") }}

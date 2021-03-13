@@ -38,23 +38,31 @@
   condition: []
   action:
   - type: turn_on
-    device_id: 842024f401af9288a2e7751ab9f50038
-    entity_id: light.eb50d4ab8e43dd4e9944re
+    device_id: 82d3095b956b7d698b7154b820d41535
+    entity_id: light.island_led_strip
     domain: light
-    brightness_pct: 80
   - type: turn_on
     device_id: 5b19356c467c69cee68b6ba3681cc026
     entity_id: light.bloom
     domain: light
     brightness_pct: 80
-  - delay: 06:00
+  - type: turn_on
+    device_id: 3f438a142c33143b06d9464f3de79b28
+    entity_id: light.cabinets_wled
+    domain: light
+    brightness_pct: 80
+  - delay: 06:00:00
   - type: turn_off
-    device_id: 842024f401af9288a2e7751ab9f50038
-    entity_id: light.eb50d4ab8e43dd4e9944re
+    device_id: 82d3095b956b7d698b7154b820d41535
+    entity_id: light.island_led_strip
     domain: light
   - type: turn_off
     device_id: 5b19356c467c69cee68b6ba3681cc026
     entity_id: light.bloom
+    domain: light
+  - type: turn_off
+    device_id: 3f438a142c33143b06d9464f3de79b28
+    entity_id: light.cabinets_wled
     domain: light
   mode: single
 - id: '1607655474196'
@@ -101,7 +109,7 @@
   condition: []
   action:
   - type: turn_on
-    device_id: a1a44192eaad6271bcc976226aa4af06
-    entity_id: switch.moccamaster
+    device_id: e16c205241844407ae325734e4eb2ed4
+    entity_id: switch.moccamaster_switch
     domain: switch
   mode: single

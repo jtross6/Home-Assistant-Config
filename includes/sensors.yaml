@@ -16,3 +16,16 @@
       friendly_name: "Spa Temp"
       value_template: "{{ state_attr('climate.spa', 'current_temperature') }}"
       unit_of_measurement: F
+
+    moccamaster_state:
+      friendly_name: "Moccamaster State"
+      value_template: >-
+        {% if is_state('switch.moccamaster', 'off') %}
+          off
+        {% elif states('sensor.moccamaster_power')|float < 10 %}
+          standby
+        {% elif states('sensor.moccamaster_power')|float < 100 %}
+          warming
+        {% else %}
+          brewing
+        {% endif %}

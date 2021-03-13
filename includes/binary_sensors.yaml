@@ -13,37 +13,16 @@
   sensors:
     window_status:
       friendly_name: "Window Status"
-      entity_id:
-        - binary_sensor.front_room_window_1
-        - binary_sensor.front_room_window_2
-        - binary_sensor.living_room_window_1
-        - binary_sensor.living_room_window_2
-        - binary_sensor.living_room_window_3
-        - binary_sensor.guest_bedroom_window
-        - binary_sensor.kitchen_window
       device_class: window
       value_template: "{{ expand('group.all_windows') | selectattr('state','eq','on') | list | count > 0 }}"
 
     door_status:
       friendly_name: "Door Status"
-      entity_id:
-        - binary_sensor.front_door
-        - binary_sensor.back_door
-        - binary_sensor.garage_entry_door
       device_class: door
       value_template: "{{ expand('group.all_doors') | selectattr('state','eq','on') | list | count > 0 }}"
 
     media_status:
       friendly_name: "Media Player Status"
-      entity_id:
-        - media_player.spotify_lilboarder32
-        - media_player.spotify_lilboarder32
-        - media_player.shatterdome_speaker
-        - media_player.onkybro
-        - media_player.nursery_speaker
-        - media_player.master_bedroom_speaker
-        - media_player.living_room_tv
-        - media_player.kitchen_display
       value_template: >
         {{ expand('group.all_media_players')
         | rejectattr('state','eq','idle')
@@ -53,13 +32,15 @@
 
     bedtime_report:
       friendly_name: "Bedtime Report"
-      entity_id:
-        - light.shatterdome_light
-        - light.living_room_lamp
-        - binary_sensor.window_status
-        - cover.garage
       value_template: >
         {{ is_state('light.shatterdome_light', 'on') or
-          is_state('light.shatterdome_light', 'on') or
+          is_state('binary_sensor.bedtime_lights_on', 'on') or
           is_state('binary_sensor.window_status', 'on') or 
           is_state('cover.garage', 'open') }}
+      
+    bedtime_lights_on:
+      friendly_name: "Bedtime Lights On"
+      value_template: >
+        {{ expand('group.bedtime_lights')
+        | selectattr('state','eq','on')
+        | list | count > 0 }}

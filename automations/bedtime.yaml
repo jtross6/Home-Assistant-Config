@@ -43,7 +43,7 @@
     - service: input_datetime.set_datetime
       data_template:
         entity_id: input_datetime.bedtime_delayed
-        time: input_datetime.bedtime
+        time: states("input_datetime.bedtime")
       
 - alias: "Bedtime: good night"
   trigger:

@@ -109,7 +109,7 @@
   condition: []
   action:
   - type: turn_on
-    device_id: a1a44192eaad6271bcc976226aa4af06
-    entity_id: switch.moccamaster
+    device_id: e16c205241844407ae325734e4eb2ed4
+    entity_id: switch.moccamaster_switch
     domain: switch
   mode: single
